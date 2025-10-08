@@ -1,0 +1,339 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Pantalla Interactiva</title>
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body, html {
+      width: 100%;
+      height: 100%;
+      font-family: Arial, sans-serif;
+    
+    }
+
+    /* === PANTALLA 1 === */
+    .pantalla1 {
+      width: 100%;
+      height: 100vh;
+      background: url('pai.jpg') no-repeat center center;
+  background-size: cover;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      position: relative;
+    }
+
+    .contenedor-lista {
+      border: 5px solid;
+      padding: 40px;
+      animation: bordeTricolor 3s infinite linear;
+    }
+
+    @keyframes bordeTricolor {
+      0%   { border-color: green; }
+      33%  { border-color: white; }
+      66%  { border-color: red; }
+      100% { border-color: green; }
+    }
+
+    .contenedor-lista ul {
+      list-style: none;
+      text-align: center;
+    }
+
+    .contenedor-lista li:nth-child(2) {
+      font-size: 2em; /* h1 */
+    }
+
+    .contenedor-lista li:not(:nth-child(2)) {
+      font-size: 1.2em; /* h3 */
+    }
+
+    .img-esquina {
+      position: absolute;
+      bottom: 20px;
+      left: 20px;
+      width: 100px;
+      height: auto;
+    }
+
+    .boton-empezar {
+      position: absolute;
+      bottom: 20px;
+      right: 20px;
+      padding: 10px 20px;
+      font-size: 16px;
+      background-color: green;
+      color: white;
+      border: none;
+      cursor: pointer;
+      transition: background-color 4s, transform 1s, opacity 1s;
+    }
+
+    .boton-final {
+      background-color: red;
+      transform: translateY(-30px) rotate(10deg);
+      opacity: 0;
+    }
+
+    /* === PANTALLA 2 === */
+    .pantalla2 {
+      display: none;
+      width: 100%;
+      min-height: 100vh;
+      background-color: #fdf6e3;
+    
+      padding: 40px;
+    }
+
+    .contenedor-cafe {
+      border: 5px solid #a67b5b;
+      padding: 20px;
+      
+      z-index: 1;
+    }
+
+    .contenedor-cafe h3 {
+      font-size: 1.2em;
+      margin-top: 20px;
+    }
+
+    .contenedor-cafe p {
+      margin-bottom: 10px;
+    }
+
+    .img1, .img2 {
+      display: block;
+      margin: 20px auto;
+      border: 2px solid #ccc;
+    }
+
+    .img1 {
+      width: 420px;
+      height: 310px;
+    }
+
+    .img2 {
+      width: 280px;
+      height: 410px;
+    }
+
+    .boton-fuentes, .boton-bibliografia {
+      background-color: pink;
+      padding: 10px;
+      margin: 10px;
+      border: none;
+      cursor: pointer;
+      display: block;
+    }
+
+    .flexbox-bibliografia {
+      display: none;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: 20px;
+      background-color: #f5f5dc;
+      padding: 15px;
+    }
+
+    .flexbox-bibliografia div {
+      background-color: #fff;
+      padding: 10px;
+      border: 1px solid #ccc;
+      flex: 1 1 30%;
+    }
+
+    .estrella {
+      position: absolute;
+      font-size: 30px;
+      color: yellow;
+      animation: girar 4s linear infinite;
+    }
+
+    .estrella.izq { top: 20px; left: 20px; }
+    .estrella.centro { top: 20px; left: 50%; transform: translateX(-50%); }
+    .estrella.der { top: 20px; right: 20px; }
+
+    @keyframes girar {
+      from { transform: rotate(0deg); }
+      to { transform: rotate(360deg); }
+    }
+
+    .boton-finalizar {
+      position: absolute;
+      bottom: 20px;
+      right: 20px;
+      width: 0;
+      height: 0;
+      border-left: 20px solid transparent;
+      border-right: 20px solid transparent;
+      border-top: 35px solid red;
+      cursor: pointer;
+      animation: rotarFinal 2s forwards;
+    }
+
+    @keyframes rotarFinal {
+      to { transform: rotate(360deg); }
+    }
+
+    /* === PANTALLA 3 === */
+    .pantalla3 {
+      display: none;
+      width: 100%;
+      height: 100vh;
+      background-color: blue;
+      position: relative;
+    }
+
+    .mensaje-gracias {
+      position: absolute;
+      bottom: -100px;
+      width: 100%;
+      text-align: center;
+      font-size: 3em;
+      font-weight: bold;
+      color: black;
+      background-color: #f5f5dc;
+      animation: subirGracias 3s forwards;
+    }
+
+    @keyframes subirGracias {
+      to {
+        bottom: 50%;
+        transform: translateY(50%);
+      }
+    }
+
+  </style>
+</head>
+<body>
+
+<!-- ======= PANTALLA 1 ======= -->
+<div class="pantalla1" id="pantalla1">
+  <div class="contenedor-lista">
+    <ul>
+      <li> Asignatura: M4S2: Desarrolla aplicaciones web con conexión a bases de datos 
+</li>
+      <li> Arquitectura Cliente-Servidor
+</li> <!-- h1 tamaño -->
+      <li> Plantel: CECyTE 06 Tepeyanco</li><br>
+      <li> Profesor: Alexandro Uc Gonzales</li><br>
+      <li>   Alumnos: Angel de Jesus Muñoz Estada</li>
+      <li> Joshua Vázquez Aguila</li>
+      <li>                  Ernesto Guzman Ibarra</li>
+      <li>                  Santiago Jared Brenes Melendez</li>
+ <br>     <li>Grado y Grupo: 5°D</li>
+      <br><li> Fecha de entrega: 08/10/25</li></ul></div>
+  <img src="cec.jpeg" alt="imagen esquina" class="img-esquina">
+  <button class="boton-empezar" id="botonEmpezar">Empezar</button>
+</div>
+
+<!-- ======= PANTALLA 2 ======= -->
+<div class="pantalla2" id="pantalla2">
+  <div class="estrella izq">★</div>
+  <div class="estrella centro">★</div>
+  <div class="estrella der">★</div>
+
+  <div class="contenedor-cafe">
+<h3> Investigación Documental - Arquitectura Cliente Servidor</h3>
+    <p>La arquitectura cliente-servidor es un modelo fundamental en el desarrollo de sistemas de información y aplicaciones en red. Se basa en la interacción entre dos componentes principales: el cliente, que realiza solicitudes, y el servidor, que responde a ellas proporcionando datos, recursos o servicios. Este modelo ha sido clave para la evolución de Internet y de la informática distribuida.</p>
+    <h3> Servidores HTTP</h3>
+    <p>Un servidor HTTP es tanto el software como el hardware permite a navegadores que soliciten y reciban recursos mediante el protocolo HTTP. <br>
+Su función principal es procesar peticiones y devolver respuestas, generalmente en forma de páginas web o archivos.
+Aplicaciones que gestionan solicitudes hechas por clientes a través del protocolo HTTP o HTTPS. Entre los más conocidos son Apache, Nginx y Microsoft IIS. Se encargan de entregar páginas web, recursos estáticos y contenido dinámico generado por aplicaciones. Además, permiten la configuración de módulos, control de accesos y balanceo de carga para optimizar el rendimiento y la seguridad<br>
+
+Características: <br>
+- Responde a peticiones HTTP y HTTPS. <br>
+- Puede servir contenido estático y dinámico. <br>
+- Permite alojar múltiples sitios mediante virtual hosting. <br>
+Ejemplos: Apache, Nginx, Microsoft IIS.</p>
+    <h3> Lenguajes de Servidor</h3>
+    <p> Son lenguajes que se ejecutan en el servidor para procesar la lógica de una aplicación, comunicarse con bases de datos y generar contenido dinámico. <br>
+Los lenguajes de programación del lado del servidor permiten generar contenido dinámico en respuesta a las solicitudes de los clientes. Los más utilizados son PHP, Python, JavaScript (Node.js) y Java. Estos lenguajes procesan datos, gestionan bases de datos y crean interfaces que facilitan la interacción con el usuario a través de los navegadores. <br>
+Características: <br>
+- Se ejecutan en el servidor antes de enviar la respuesta al cliente. <br>
+- Permiten validación, autenticación y seguridad de datos. <br>
+- Integran frameworks y herramientas de desarrollo. <br>
+Ejemplos: PHP, Python, Node.js, Java, C#.</p>
+<h3> Sistemas Gestores de Bases de Datos (SGBD) </h3>
+<p> Programas que administran y mantienen bases de datos. Garantizan integridad, seguridad y disponibilidad de la información. Estos son programas que permiten almacenar, y recuperar información de manera estructurada. Existen modelos relacionales como MySQL y PostgreSQL, y modelos NoSQL como MongoDB. Estos sistemas garantizan la integridad de los datos, el control de accesos y la eficiencia en las consultas, además de ofrecer respaldo y recuperación ante fallos. <br>
+Características: <br>
+- Permiten consultas mediante SQL. <br>
+- Aseguran concurrencia y control de acceso. <br>
+- Optimizan el rendimiento mediante índices. <br>
+Ejemplos: MySQL, PostgreSQL, Oracle, MongoDB. </p>
+   
+<img src="cs.jpg" alt="imagen1" class="img1">
+    <button class="boton-fuentes" onclick="document.getElementById('bibliografia').scrollIntoView()">Ver fuentes</button>
+
+    <h3> Modelo Cliente-Servidor</h3>
+   <p> El modelo cliente-servidor se basa en la interacción entre un cliente que solicita recursos o servicios y un servidor que los provee. Es la arquitectura más utilizada en la web moderna. En este modelo, el cliente es responsable de la interfaz y de enviar peticiones, mientras que el servidor realiza el procesamiento de datos y devuelve las respuestas. Asi se permite la distribución de tareas, la escalabilidad y la modularidad del sistema, lo que lo hace eficiente para aplicaciones web, correo electrónico y redes empresariales<br>
+Funcionamiento: <br>
+1. El cliente envía una petición (HTTP, por ejemplo). <br>
+2. El servidor procesa la solicitud y, si es necesario, consulta la base de datos. <br>
+3. El servidor envía una respuesta con la información solicitada. <br>
+4. El cliente muestra el resultado al usuario. <br>
+
+Ejemplo: al abrir una página web, el navegador solicita información al servidor, que responde con el contenido de la página.</p>
+    <h3> Hardware Mínimo para un Servidor</h3>
+    <p>Para que un servidor funcione correctamente debe contar con los siguientes componentes: <br>
+- CPU: Varios núcleos con alto rendimiento. <br>
+- RAM: Mínimo 8 GB (ideal 16 GB o más). <br>
+- Almacenamiento: SSD de al menos 200 GB. <br>
+- Red: Conexión estable de 1 Gbps o superior. <br>
+- Fuente de poder: Redundante y confiable. <br>
+- Refrigeración adecuada para evitar sobrecalentamiento. <br>
+La elección del hardware depende del tipo de aplicación y la cantidad de usuarios concurrentes</p>
+
+    <img src="if.jpg" alt="imagen2" class="img2">
+    <button class="boton-fuentes" onclick="document.getElementById('bibliografia').scrollIntoView()">Ver fuentes</button>
+
+    <h3> Conclusión</h3>
+<p>La arquitectura cliente-servidor continúa siendo una base esencial para el desarrollo de sistemas informáticos modernos. Su estructura modular y escalable facilita la comunicación entre usuarios y servidores en distintas plataformas. Además, la evolución de las tecnologías web ha permitido que este modelo se adapte a nuevas necesidades como el cómputo en la nube y las aplicaciones móviles, manteniendo su relevancia en la era digital.
+</p><div id="bibliografia">
+      <button class="boton-bibliografia" onclick="mostrarBibliografia()">Ver bibliografía</button>
+      <div class="flexbox-bibliografia" id="flexBibliografia">
+<a href=" https://developer.mozilla.org/es/docs/Web/HTTP/Overview " target="_blank">(Formato APA 7ª edición) Mozilla Developer Network. (2024). HTTP overview.</a>
+<a href="https://www.geeksforgeeks.org/client-server-architecture/ " target="_blank"> GeeksforGeeks. (2024). Client-Server Architecture. </a>
+<a href="https://www.hostinger.mx/tutoriales/que-es-un-servidor-web " target="_blank"> Hostinger. (2024). Qué es un servidor web.</a>
+<a href="https://es.wikipedia.org/wiki/Arquitectura_cliente-servidor " target="_blank"> Wikipedia. (2024). Arquitectura cliente-servidor.</a>
+<a href="https://learn.microsoft.com/en-us/iis/get-started/whats-new-in-iis-10/" target="_blank">Microsoft Learn. (2024). Introduction to web servers.</a>
+<a href="https://intelequia.com/es/blog/post/detalle/componentes-del-modelo-cliente-servidor " target="_blank">Intelequia. (2024). Componentes del modelo cliente-servidor </a></div>
+  <div class="boton-finalizar" onclick="mostrarPantalla3()"></div></div>
+<!-- ======= PANTALLA 3 ======= -->
+<div class="pantalla3" id="pantalla3" onclick="volverPantalla1()">
+  <div class="mensaje-gracias">GRACIAS</div>
+</div>
+
+<script>
+  const boton = document.getElementById('botonEmpezar');
+  boton.addEventListener('click', () => {
+    boton.classList.add('boton-final');
+    setTimeout(() => {
+      document.getElementById('pantalla1').style.display = 'none';
+      document.getElementById('pantalla2').style.display = 'block';
+    }, 4000);
+  });
+
+  function mostrarBibliografia() {
+    document.getElementById('flexBibliografia').style.display = 'flex';
+  }
+
+  function mostrarPantalla3() {
+    document.getElementById('pantalla2').style.display = 'none';
+    document.getElementById('pantalla3').style.display = 'block';
+  }
+
+  function volverPantalla1() {
+    document.getElementById('pantalla3').style.display = 'none';
+    document.getElementById('pantalla1').style.display = 'flex';
+  }
+</script>
+</body>
+</html
