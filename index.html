@@ -210,7 +210,67 @@
         transform: translateY(50%);
       }
     }
+  body {
+    font-family: 'Poppins', sans-serif;
+    background: linear-gradient(135deg, #f0f4ff, #ffffff);
+    color: #222;
+    margin: 0;
+    padding: 40px 20px;
+  }
 
+  h1 {
+    text-align: center;
+    color: #004aad;
+    margin-bottom: 50px;
+    text-shadow: 1px 1px 2px rgba(0,0,0,0.1);
+  }
+
+  .mapa {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: relative;
+    gap: 60px;
+  }
+
+  .nodo {
+    background: white;
+    border: 2px solid #004aad;
+    border-radius: 20px;
+    padding: 25px;
+    width: 80%;
+    max-width: 600px;
+    text-align: center;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    transition: all 0.3s ease;
+  }
+
+  .nodo:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+    background: #eaf2ff;
+  }
+
+  .nodo h2 {
+    color: #004aad;
+    font-size: 1.5em;
+    margin-bottom: 10px;
+  }
+
+  .nodo ul {
+    text-align: left;
+    margin: 10px auto;
+    display: inline-block;
+    text-align: left;
+  }
+
+  .relacion {
+    position: relative;
+    text-align: center;
+    font-style: italic;
+    color: #333;
+    font-size: 1.1em;
+  }
   </style>
 </head>
 <body>
@@ -242,9 +302,12 @@
   <div class="estrella der">★</div>
 
   <div class="contenedor-cafe">
+    <div class="mapa">
+
+  <div class="nodo">
 <h3> Investigación Documental - Arquitectura Cliente Servidor</h3>
     <p>La arquitectura cliente-servidor es un modelo fundamental en el desarrollo de sistemas de información y aplicaciones en red. Se basa en la interacción entre dos componentes principales: el cliente, que realiza solicitudes, y el servidor, que responde a ellas proporcionando datos, recursos o servicios. Este modelo ha sido clave para la evolución de Internet y de la informática distribuida.</p>
-    <h3> Servidores HTTP</h3>
+    <h2> Servidores HTTP</h2>
     <p>Un servidor HTTP es tanto el software como el hardware permite a navegadores que soliciten y reciban recursos mediante el protocolo HTTP. <br>
 Su función principal es procesar peticiones y devolver respuestas, generalmente en forma de páginas web o archivos.
 Aplicaciones que gestionan solicitudes hechas por clientes a través del protocolo HTTP o HTTPS. Entre los más conocidos son Apache, Nginx y Microsoft IIS. Se encargan de entregar páginas web, recursos estáticos y contenido dinámico generado por aplicaciones. Además, permiten la configuración de módulos, control de accesos y balanceo de carga para optimizar el rendimiento y la seguridad<br>
